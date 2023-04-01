@@ -1,0 +1,42 @@
+// font-size
+$text-xl: 2rem;
+$text-lg: 1.8rem;
+$text-md: 1.6rem;
+$text-sm: 1.4rem;
+
+// line-height
+$line-xl: 2.8rem;
+$line-lg: 2.6rem;
+$line-md: 2.4rem;
+$line-sm: 2rem;
+
+// colors
+$black: #0c0c0d;
+$blue: #4941f6;
+$gray: #212124;
+$dark-gray: #18181b;
+$light-gray: #3d3d3f;
+$purple: #be23fe;
+$purple-to-orange: linear-gradient(
+  to right,
+  #be23fe,
+  #e200db,
+  #f600b9,
+  #fe009c,
+  #ff2d83,
+  #ff3f73,
+  #ff5165,
+  #ff6259,
+  #ff6e4c,
+  #ff7b3f,
+  #ff8930,
+  #ff981f
+);
+$purple-to-pink: linear-gradient(
+  to right,
+  #be23fe,
+  #e200db,
+  #f600b9,
+  #fe009c,
+  #ff2d83
+);
