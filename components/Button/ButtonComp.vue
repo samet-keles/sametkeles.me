@@ -6,9 +6,6 @@
 @import "@/assets/scss/config/variables.scss";
 
 .button {
-  margin-top: 50px;
-  margin-left: 50px;
-
   cursor: pointer;
   padding: 0.8rem 1.6rem;
   font-size: $text-md;
@@ -19,8 +16,8 @@
   background: linear-gradient($gray, $gray) padding-box,
     $purple-to-pink border-box;
   border-radius: 1rem;
-  border: 3px solid transparent;
-  border-width: 3px;
+  border: 2px solid transparent;
+  border-width: 2px;
   border-style: solid;
 
   &:hover {
