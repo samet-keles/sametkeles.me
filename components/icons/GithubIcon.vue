@@ -12,7 +12,7 @@ const isDark = useDark();
     width="24"
     height="24"
     viewBox="0 0 24 24"
-    stroke-width="2"
+    stroke-width="1.5"
     stroke="#18181b"
     fill="none"
     stroke-linecap="round"
@@ -25,8 +25,14 @@ const isDark = useDark();
   </svg>
 </template>
 
-<style>
+<style lang="scss">
+.icon {
+  &-tabler-brand-github:hover {
+    stroke: rgb(180, 180, 180);
+  }
+}
+
 .-darkMode {
-  stroke: #fff;
+  stroke: rgb(225, 225, 225);
 }
 </style>

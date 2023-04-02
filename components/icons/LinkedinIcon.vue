@@ -12,7 +12,7 @@ const isDark = useDark();
     width="24"
     height="24"
     viewBox="0 0 24 24"
-    stroke-width="2"
+    stroke-width="1.5"
     stroke="#18181b"
     fill="none"
     stroke-linecap="round"
@@ -26,3 +26,13 @@ const isDark = useDark();
     <path d="M16 16v-3a2 2 0 0 0 -4 0" />
   </svg>
 </template>
+
+<style lang="scss">
+@import "@/assets/scss/config/variables.scss";
+
+.icon {
+  &-tabler-brand-linkedin:hover {
+    stroke: $blue;
+  }
+}
+</style>

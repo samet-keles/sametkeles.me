@@ -27,6 +27,7 @@ const hidden = ref(false);
 
 <style lang="scss" scoped>
 @import "@/assets/scss/config/variables.scss";
+@import "@/assets/scss/config/mixin.scss";
 .slide-fade {
   &-enter-active {
     transition: all 0.3s ease-out;
@@ -51,6 +52,10 @@ const hidden = ref(false);
   box-shadow: 0 20px 10px rgba(black, 0.3);
   border-radius: 12px;
   background-color: transparent;
+
+  @include mq("tablet") {
+    top: 10rem;
+  }
 
   &__item {
     cursor: pointer;

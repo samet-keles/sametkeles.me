@@ -5,7 +5,7 @@
     width="24"
     height="24"
     viewBox="0 0 24 24"
-    stroke-width="2"
+    stroke-width="1.5"
     stroke="#18181b"
     fill="none"
     stroke-linecap="round"
@@ -18,3 +18,13 @@
     />
   </svg>
 </template>
+
+<style lang="scss">
+@import "@/assets/scss/config/variables.scss";
+
+.icon {
+  &-tabler-sun:hover {
+    stroke: $orange;
+  }
+}
+</style>

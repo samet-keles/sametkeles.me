@@ -15,10 +15,14 @@ console.log(isDark.value);
 <template>
   <ul class="icons">
     <li class="icons__item">
-      <a href=""><GithubIcon></GithubIcon></a>
+      <a href="https://github.com/samet-keles" target="_blank"
+        ><GithubIcon></GithubIcon
+      ></a>
     </li>
     <li class="icons__item">
-      <a href=""><LinkedinIcon></LinkedinIcon></a>
+      <a href="https://www.linkedin.com/in/samet-keles/" target="_blank"
+        ><LinkedinIcon></LinkedinIcon
+      ></a>
     </li>
     <li class="icons__light icons__item" v-if="!isDark" @click="toggleDark()">
       <button class="btn light__btn"><SunIcon></SunIcon></button>
