@@ -1,3 +1,4 @@
+@import "@/assets/scss/config/variables.scss";
 @import "@/assets/scss/config/mixin.scss";
 
 html {
@@ -10,13 +11,17 @@ body {
 }
 
 .dark {
-  background: #0c0c0d;
-  color: rgb(244, 244, 245);
-}
+  background: $black;
+  color: $light-gray;
 
-.light {
-  background: #fff;
-  color: #18181b;
+  li {
+    color: $light-gray !important;
+
+    &:hover {
+      color: white !important;
+      background-color: $dark-gray !important;
+    }
+  }
 }
 
 .container {

@@ -24,11 +24,11 @@ console.log(isDark.value);
         ><LinkedinIcon></LinkedinIcon
       ></a>
     </li>
-    <li class="icons__light icons__item" v-if="!isDark" @click="toggleDark()">
-      <button class="btn light__btn"><SunIcon></SunIcon></button>
+    <li class="icons__item icons--light" v-if="!isDark" @click="toggleDark()">
+      <button class="btn btn--light"><SunIcon></SunIcon></button>
     </li>
-    <li class="icons__dark icons__item" v-if="isDark">
-      <button class="btn dark__btn" @click="toggleDark()">
+    <li class="icons__item icons--dark" v-if="isDark">
+      <button class="btn btn--dark" @click="toggleDark()">
         <MoonIcon></MoonIcon>
       </button>
     </li>

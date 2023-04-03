@@ -17,6 +17,8 @@ import MenuComp from "@/components/Header/MenuComp.vue";
 </template>
 
 <style lang="scss">
+@import "@/assets/scss/config/mixin.scss";
+
 .header {
   .navigation {
     position: relative;
@@ -27,14 +29,31 @@ import MenuComp from "@/components/Header/MenuComp.vue";
 
   .menuComp {
     flex-basis: 33.33%;
+
+    @include mq("large") {
+      order: 2;
+      flex-basis: 46%;
+    }
   }
 
   .logoComp {
     flex-basis: 33.33%;
+    text-align: center;
+
+    @include mq("large") {
+      order: 1;
+      text-align: left;
+      flex-basis: 27%;
+    }
   }
 
   .iconGroup {
     flex-basis: 33.33%;
+
+    @include mq("large") {
+      order: 3;
+      flex-basis: 27%;
+    }
   }
 }
 </style>

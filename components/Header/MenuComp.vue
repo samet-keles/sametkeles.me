@@ -3,13 +3,13 @@ import { ref } from "vue";
 
 import MenuIcon from "@/components/icons/MenuIcon.vue";
 
-const hidden = ref(false);
+const show = ref(false);
 </script>
 
 <template>
   <div class="wrapper">
     <Transition name="slide-fade">
-      <ul class="menu" v-if="hidden">
+      <ul class="menu" v-show="show">
         <li class="menu__item" href=""><a>Home</a></li>
         <li class="menu__item" href=""><a>Projects</a></li>
         <li class="menu__item" href=""><a>About me</a></li>
@@ -18,7 +18,7 @@ const hidden = ref(false);
       </ul>
     </Transition>
     <div>
-      <button class="btn__icon" @click="hidden = !hidden">
+      <button class="btn" @click="show = !show">
         <MenuIcon></MenuIcon>
       </button>
     </div>
@@ -57,6 +57,14 @@ const hidden = ref(false);
     top: 10rem;
   }
 
+  @include mq("large") {
+    display: flex !important;
+    justify-content: space-between;
+    position: static;
+    padding: 0;
+    box-shadow: none;
+  }
+
   &__item {
     cursor: pointer;
     font-size: $text-sm;
@@ -67,11 +75,26 @@ const hidden = ref(false);
     &:hover {
       color: $purple;
     }
+
+    @include mq("large") {
+      padding: 0.75rem 1.5rem;
+      border-radius: 3px;
+      color: $gray;
+
+      &:hover {
+        color: $dark-gray;
+        background-color: rgba($color: $light-gray, $alpha: 0.3);
+      }
+    }
   }
 }
 
-.btn__icon {
+.btn {
   cursor: pointer;
   background-color: transparent;
+
+  @include mq("large") {
+    display: none;
+  }
 }
 </style>

@@ -26,8 +26,6 @@ const isDark = useDark();
 <style lang="scss" scoped>
 @import "@/assets/scss/config/mixin.scss";
 .logo {
-  text-align: center;
-
   &__img {
     width: 75px;
     height: 75px;
