@@ -18,13 +18,3 @@
     />
   </svg>
 </template>
-
-<style lang="scss">
-@import "@/assets/scss/config/variables.scss";
-
-.icon {
-  &-tabler-sun:hover {
-    stroke: $orange;
-  }
-}
-</style>

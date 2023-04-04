@@ -1,14 +1,7 @@
-<script setup>
-import { useDark } from "@vueuse/core";
-
-const isDark = useDark();
-</script>
-
 <template>
   <svg
     xmlns="http://www.w3.org/2000/svg"
     class="icon icon-tabler icon-tabler-brand-linkedin"
-    :class="{ '-darkMode': isDark }"
     width="24"
     height="24"
     viewBox="0 0 24 24"
@@ -26,13 +19,3 @@ const isDark = useDark();
     <path d="M16 16v-3a2 2 0 0 0 -4 0" />
   </svg>
 </template>
-
-<style lang="scss">
-@import "@/assets/scss/config/variables.scss";
-
-.icon {
-  &-tabler-brand-linkedin:hover {
-    stroke: $blue;
-  }
-}
-</style>

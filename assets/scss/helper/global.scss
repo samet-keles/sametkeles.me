@@ -14,13 +14,8 @@ body {
   background: $black;
   color: $light-gray;
 
-  li {
-    color: $light-gray !important;
-
-    &:hover {
-      color: white !important;
-      background-color: $dark-gray !important;
-    }
+  svg {
+    stroke: rgb(225, 225, 225);
   }
 }
 

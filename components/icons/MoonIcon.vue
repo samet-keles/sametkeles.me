@@ -1,14 +1,7 @@
-<script setup>
-import { useDark } from "@vueuse/core";
-
-const isDark = useDark();
-</script>
-
 <template>
   <svg
     xmlns="http://www.w3.org/2000/svg"
     class="icon icon-tabler icon-tabler-moon"
-    :class="{ '-darkMode': isDark }"
     width="24"
     height="24"
     viewBox="0 0 24 24"
@@ -24,13 +17,3 @@ const isDark = useDark();
     />
   </svg>
 </template>
-
-<style lang="scss">
-@import "@/assets/scss/config/variables.scss";
-
-.icon {
-  &-tabler-moon:hover {
-    stroke: $gray-2;
-  }
-}
-</style>

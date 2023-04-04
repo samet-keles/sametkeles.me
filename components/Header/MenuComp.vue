@@ -1,9 +1,11 @@
 <script setup>
 import { ref } from "vue";
-
+import { useDark } from "@vueuse/core";
 import MenuIcon from "@/components/icons/MenuIcon.vue";
 
 const show = ref(false);
+
+const isDark = useDark();
 </script>
 
 <template>
@@ -19,7 +21,7 @@ const show = ref(false);
     </Transition>
     <div>
       <button class="btn" @click="show = !show">
-        <MenuIcon></MenuIcon>
+        <MenuIcon :class="{ '-darkMode': isDark }"></MenuIcon>
       </button>
     </div>
   </div>
@@ -84,6 +86,15 @@ const show = ref(false);
       &:hover {
         color: $dark-gray;
         background-color: rgba($color: $light-gray, $alpha: 0.3);
+      }
+
+      .dark & {
+        color: $light-gray;
+
+        &:hover {
+          color: white;
+          background-color: $dark-gray;
+        }
       }
     }
   }
