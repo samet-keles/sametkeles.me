@@ -4,6 +4,7 @@ import ButtonComp from "@/components/Button/ButtonComp.vue";
 </script>
 
 <template>
+  <div class="light-effect"></div>
   <HeaderComp></HeaderComp>
   <main class="main">
     <div class="container">
