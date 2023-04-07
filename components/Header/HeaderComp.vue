@@ -16,10 +16,19 @@ import MenuComp from "@/components/Header/MenuComp.vue";
   </header>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import "@/assets/scss/config/mixin.scss";
 
 .header {
+  position: sticky;
+  top: 0;
+  backdrop-filter: blur(12px);
+  max-height: 70px;
+
+  @include mq("large") {
+    position: static;
+    max-height: 100%;
+  }
   .navigation {
     position: relative;
     display: flex;
