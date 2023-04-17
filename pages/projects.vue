@@ -119,9 +119,13 @@
     gap: 4rem;
     .card {
       width: 27.5%;
-      // width: 31.09%;
       border-radius: 12px;
-      outline: 1px solid $gray;
+      outline: 1px solid $light-gray;
+
+      .dark & {
+        outline: 1px solid $gray;
+      }
+
       &:hover {
         outline: 2px solid $purple;
       }
@@ -135,21 +139,34 @@
       &__text {
         padding: 2rem;
         width: 100%;
-        background-color: $dark-gray;
+        background-color: #fdfcfc;
         border-bottom-right-radius: 12px;
         border-bottom-left-radius: 12px;
+
+        .dark & {
+          background-color: $dark-gray;
+        }
       }
 
       &__title {
-        color: white;
-        font-size: 20px;
+        font-size: $text-xl;
+        font-weight: 500;
         margin-bottom: 0.75rem;
+        color: $gray;
+
+        .dark & {
+          color: white;
+        }
       }
 
       &__description {
-        color: $light-gray;
+        color: #8b8b8b;
         font-size: 12px;
         font-weight: 400;
+
+        .dark & {
+          color: $light-gray;
+        }
       }
     }
   }
