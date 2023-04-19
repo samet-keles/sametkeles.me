@@ -99,6 +99,7 @@
 
 <style lang="scss" scoped>
 @import "@/assets/scss/config/variables";
+@import "@/assets/scss/config/mixin";
 
 .projects {
   padding-top: 1rem;
@@ -114,13 +115,27 @@
   }
   .cards {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
     gap: 4rem;
+
+    @include mq("tablet") {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
     .card {
-      width: 27.5%;
+      width: 75%;
       border-radius: 12px;
       outline: 1px solid $light-gray;
+
+      @include mq("tablet") {
+        width: 37.5%;
+      }
+
+      @include mq("large") {
+        width: 27.5%;
+      }
 
       .dark & {
         outline: 1px solid $gray;
