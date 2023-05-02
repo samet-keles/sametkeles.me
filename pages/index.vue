@@ -13,7 +13,7 @@
           gerçekleştirebiliriz. Sizi de burada heyecanla bekliyoruz, haydi
           birlikte keşfe çıkalım!
         </p>
-        <ButtonComp class="btn"></ButtonComp>
+        <ButtonComp class="btn" name="Contact Me"></ButtonComp>
       </section>
       <section class="animation">
         <img class="animation__gif" src="/img/home-animation.gif" />
