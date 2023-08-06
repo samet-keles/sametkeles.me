@@ -1,27 +1,55 @@
 <script setup>
 import { ref } from "vue";
-import { useDark } from "@vueuse/core";
 import MenuIcon from "@/components/icons/MenuIcon.vue";
 
 const show = ref(false);
-
-const isDark = useDark();
+const activeItem = ref("");
 </script>
 
 <template>
   <div class="wrapper">
     <Transition name="slide-fade">
-      <ul class="menu" v-show="show">
-        <li class="menu__item" href=""><a>Home</a></li>
-        <li class="menu__item" href=""><a>Projects</a></li>
-        <li class="menu__item" href=""><a>About me</a></li>
-        <li class="menu__item" href=""><a>Blog</a></li>
-        <li class="menu__item" href=""><a>Contact me</a></li>
-      </ul>
+      <div class="menu" v-show="show">
+        <NuxtLink
+          class="menu__item"
+          :class="{ '-active': activeItem === 'home' }"
+          @click="(activeItem = 'home'), (show = false)"
+          to="/"
+          >Home
+        </NuxtLink>
+        <NuxtLink
+          class="menu__item"
+          :class="{ '-active': activeItem === 'about' }"
+          @click="(activeItem = 'about'), (show = false)"
+          to="/about"
+          >About me</NuxtLink
+        >
+        <NuxtLink
+          class="menu__item"
+          :class="{ '-active': activeItem === 'projects' }"
+          @click="(activeItem = 'projects'), (show = false)"
+          to="/projects"
+          >Projects</NuxtLink
+        >
+        <NuxtLink
+          class="menu__item"
+          :class="{ '-active': activeItem === 'blog' }"
+          @click="(activeItem = 'blog'), (show = false)"
+          to="/blog"
+          >Blog</NuxtLink
+        >
+        <NuxtLink
+          class="menu__item"
+          :class="{ '-active': activeItem === 'contact' }"
+          @click="(activeItem = 'contact'), (show = false)"
+          to="/contact"
+          >Contact me</NuxtLink
+        >
+      </div>
     </Transition>
     <div>
       <button class="btn" @click="show = !show">
-        <MenuIcon :class="{ '-darkMode': isDark }"></MenuIcon>
+        <MenuIcon></MenuIcon>
       </button>
     </div>
   </div>
@@ -30,6 +58,7 @@ const isDark = useDark();
 <style lang="scss" scoped>
 @import "@/assets/scss/config/variables.scss";
 @import "@/assets/scss/config/mixin.scss";
+
 .slide-fade {
   &-enter-active {
     transition: all 0.3s ease-out;
@@ -53,7 +82,7 @@ const isDark = useDark();
   padding: 0.75rem;
   box-shadow: 0 20px 10px rgba(black, 0.3);
   border-radius: 12px;
-  background-color: transparent;
+  background-color: #fff;
 
   @include mq("tablet") {
     top: 10rem;
@@ -67,12 +96,22 @@ const isDark = useDark();
     box-shadow: none;
   }
 
+  .dark & {
+    background-color: $black;
+
+    @include mq("large") {
+      background-color: transparent;
+    }
+  }
+
   &__item {
-    cursor: pointer;
+    display: flex;
+    flex-direction: column;
     font-size: $text-sm;
     text-align: center;
     margin-top: 1.5rem;
     margin-bottom: 1.5rem;
+    color: currentColor;
 
     &:hover {
       color: $purple;
@@ -81,17 +120,26 @@ const isDark = useDark();
     @include mq("large") {
       padding: 0.75rem 1.5rem;
       border-radius: 3px;
-      color: $gray;
 
       &:hover {
         color: $dark-gray;
         background-color: rgba($color: $light-gray, $alpha: 0.3);
       }
 
+      &.-active {
+        color: $dark-gray;
+        background-color: rgba($color: $light-gray, $alpha: 0.3);
+      }
+
       .dark & {
-        color: $light-gray;
+        color: currentColor;
 
         &:hover {
+          color: white;
+          background-color: $dark-gray;
+        }
+
+        &.-active {
           color: white;
           background-color: $dark-gray;
         }

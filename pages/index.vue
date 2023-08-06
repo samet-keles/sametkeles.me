@@ -13,6 +13,7 @@
           gerçekleştirebiliriz. Sizi de burada heyecanla bekliyoruz, haydi
           birlikte keşfe çıkalım!
         </p>
+
         <nuxt-link class="contactLink" to="/contact"
           ><ButtonComp class="btn" name="Contact Me"></ButtonComp
         ></nuxt-link>

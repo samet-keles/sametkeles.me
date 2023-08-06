@@ -1,5 +1,9 @@
+<script setup>
+const props = defineProps(["name"]);
+</script>
+
 <template>
-  <button class="button">Contact me</button>
+  <button class="button">{{ props.name }}</button>
 </template>
 
 <style lang="scss">
