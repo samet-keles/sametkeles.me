@@ -13,7 +13,10 @@
           gerçekleştirebiliriz. Sizi de burada heyecanla bekliyoruz, haydi
           birlikte keşfe çıkalım!
         </p>
-        <ButtonComp class="btn" name="Contact Me"></ButtonComp>
+
+        <nuxt-link class="contactLink" to="/contact"
+          ><ButtonComp class="btn" name="Contact Me"></ButtonComp
+        ></nuxt-link>
       </section>
       <section class="animation">
         <img class="animation__gif" src="/img/home-animation.gif" />
@@ -67,10 +70,11 @@
         text-align: center;
       }
 
-      .btn {
-        display: block;
-        margin-right: auto;
-        margin-left: auto;
+      .contactLink {
+        display: inline-block;
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
         margin-top: 3rem;
       }
     }
