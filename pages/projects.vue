@@ -1,94 +1,42 @@
+<script setup>
+import { ref, onMounted } from "vue";
+import { db } from "@/db";
+import { collection, onSnapshot } from "firebase/firestore";
+
+const projectsArr = ref([]);
+
+const projectsCollection = collection(db, "projects");
+
+function projectsData() {
+  return onSnapshot(projectsCollection, (snapshot) => {
+    projectsArr.value = snapshot.docs.map((project) => project.data());
+  });
+}
+
+let unsubscribe;
+
+onMounted(() => {
+  unsubscribe = projectsData();
+});
+
+onUnmounted(() => {
+  if (unsubscribe) {
+    unsubscribe();
+  }
+});
+</script>
+
 <template>
   <section class="projects">
     <div class="container">
       <h1 class="projects__title">Projects</h1>
       <div class="cards">
-        <div class="card">
-          <a
-            href="https://github.com/samet-keles/JavaScrit-ToDoList"
-            target="_blank"
-          >
-            <img src="/img/todo-list.webp" alt="" class="card__img" />
+        <div class="card" v-for="project in projectsArr" :key="project.id">
+          <a :href="project.link" target="_blank">
+            <img :src="project.img" alt="" class="card__img" />
             <div class="card__text">
-              <h3 class="card__title">To Do List</h3>
-              <p class="card__description">
-                Html, Css, Bootstrap, Javascript todo list çalışması
-              </p>
-            </div>
-          </a>
-        </div>
-
-        <div class="card">
-          <a
-            href="https://github.com/samet-keles/JavaScrit-ToDoList"
-            target="_blank"
-          >
-            <img src="/img/todo-list.webp" alt="" class="card__img" />
-            <div class="card__text">
-              <h3 class="card__title">To Do List</h3>
-              <p class="card__description">
-                Html, Css, Bootstrap, Javascript todo list çalışması
-              </p>
-            </div>
-          </a>
-        </div>
-
-        <div class="card">
-          <a
-            href="https://github.com/samet-keles/JavaScrit-ToDoList"
-            target="_blank"
-          >
-            <img src="/img/todo-list.webp" alt="" class="card__img" />
-            <div class="card__text">
-              <h3 class="card__title">To Do List</h3>
-              <p class="card__description">
-                Html, Css, Bootstrap, Javascript todo list çalışması
-              </p>
-            </div>
-          </a>
-        </div>
-
-        <div class="card">
-          <a
-            href="https://github.com/samet-keles/JavaScrit-ToDoList"
-            target="_blank"
-          >
-            <img src="/img/todo-list.webp" alt="" class="card__img" />
-            <div class="card__text">
-              <h3 class="card__title">To Do List</h3>
-              <p class="card__description">
-                Html, Css, Bootstrap, Javascript todo list çalışması
-              </p>
-            </div>
-          </a>
-        </div>
-
-        <div class="card">
-          <a
-            href="https://github.com/samet-keles/JavaScrit-ToDoList"
-            target="_blank"
-          >
-            <img src="/img/todo-list.webp" alt="" class="card__img" />
-            <div class="card__text">
-              <h3 class="card__title">To Do List</h3>
-              <p class="card__description">
-                Html, Css, Bootstrap, Javascript todo list çalışması
-              </p>
-            </div>
-          </a>
-        </div>
-
-        <div class="card">
-          <a
-            href="https://github.com/samet-keles/JavaScrit-ToDoList"
-            target="_blank"
-          >
-            <img src="/img/todo-list.webp" alt="" class="card__img" />
-            <div class="card__text">
-              <h3 class="card__title">To Do List</h3>
-              <p class="card__description">
-                Html, Css, Bootstrap, Javascript todo list çalışması
-              </p>
+              <h3 class="card__title">{{ project.title }}</h3>
+              <p class="card__description">{{ project.description }}</p>
             </div>
           </a>
         </div>
