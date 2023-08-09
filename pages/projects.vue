@@ -123,6 +123,9 @@ onUnmounted(() => {
       }
 
       &__description {
+        display: flex;
+        align-items: center;
+        height: 11ch;
         color: #8b8b8b;
         font-size: 12px;
         font-weight: 400;
