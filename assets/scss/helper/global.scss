@@ -44,3 +44,17 @@ body {
     padding: 1rem 8rem;
   }
 }
+
+.page {
+  padding-top: 1rem;
+  padding-bottom: 5rem;
+  &__title {
+    padding-bottom: 5rem;
+    text-align: center;
+    font-size: 3.6rem;
+
+    .dark & {
+      color: white;
+    }
+  }
+}

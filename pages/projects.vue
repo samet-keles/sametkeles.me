@@ -27,9 +27,9 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <section class="projects">
+  <section class="projects page">
     <div class="container">
-      <h1 class="projects__title">Projects</h1>
+      <h1 class="page__title">Projects</h1>
       <div class="cards">
         <div class="card" v-for="project in projectsArr" :key="project.id">
           <a :href="project.link" target="_blank">
@@ -50,17 +50,6 @@ onUnmounted(() => {
 @import "@/assets/scss/config/mixin";
 
 .projects {
-  padding-top: 1rem;
-  padding-bottom: 5rem;
-  &__title {
-    padding-bottom: 5rem;
-    text-align: center;
-    font-size: 3.6rem;
-
-    .dark & {
-      color: white;
-    }
-  }
   .cards {
     display: flex;
     flex-direction: column;
@@ -125,7 +114,7 @@ onUnmounted(() => {
       &__description {
         display: flex;
         align-items: center;
-        height: 11ch;
+        height: 13ch;
         color: #8b8b8b;
         font-size: 12px;
         font-weight: 400;

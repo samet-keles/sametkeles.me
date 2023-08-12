@@ -1,7 +1,7 @@
 <template>
-  <section class="about">
+  <section class="about page">
     <div class="container">
-      <h1 class="about__title">About Me</h1>
+      <h1 class="page__title">About Me</h1>
       <p class="about__content">
         I am Samet Keleş, a highly motivated front-end developer proficient in
         HTML, CSS, and JavaScript. I possess a strong passion for creating
@@ -24,18 +24,6 @@
 @import "@/assets/scss/config/mixin";
 
 .about {
-  padding-top: 1rem;
-  padding-bottom: 5rem;
-  &__title {
-    padding-bottom: 5rem;
-    text-align: center;
-    font-size: 3.6rem;
-
-    .dark & {
-      color: white;
-    }
-  }
-
   &__content {
     text-align: center;
     font-size: $text-lg;

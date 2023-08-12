@@ -35,9 +35,9 @@ async function handleSubmit() {
 </script>
 
 <template>
-  <section class="contact">
+  <section class="contact page">
     <div class="container">
-      <h1 class="contact__title">Contact Me!</h1>
+      <h1 class="page__title">Contact Me!</h1>
 
       <form class="form" @submit.prevent="handleSubmit">
         <input
@@ -81,19 +81,7 @@ async function handleSubmit() {
 <style lang="scss" scoped>
 @import "@/assets/scss/config/variables";
 @import "@/assets/scss/config/mixin";
-.contact {
-  padding-top: 1rem;
-  padding-bottom: 5rem;
-  &__title {
-    padding-bottom: 5rem;
-    text-align: center;
-    font-size: 3.6rem;
 
-    .dark & {
-      color: white;
-    }
-  }
-}
 .form {
   display: flex;
   flex-direction: column;
