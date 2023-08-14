@@ -31,6 +31,14 @@ body {
   }
 }
 
+a {
+  color: $dark-gray;
+
+  .dark & {
+    color: $light-gray;
+  }
+}
+
 .container {
   padding: 0.5rem 2rem;
   margin-left: auto;
