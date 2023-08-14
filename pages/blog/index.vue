@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onMounted } from "vue";
+import { ref, onMounted, onUnmounted } from "vue";
 import { db } from "@/db";
 import { collection, onSnapshot } from "firebase/firestore";
 
@@ -10,6 +10,7 @@ const postsCollection = collection(db, "posts");
 function postsData() {
   return onSnapshot(postsCollection, (snapshot) => {
     postsArr.value = snapshot.docs.map((post) => post.data());
+    console.log(postsArr.value[0].title);
   });
 }
 
@@ -33,7 +34,7 @@ onUnmounted(() => {
       <div class="posts">
         <article class="post" v-for="post in postsArr" :key="post.id">
           <div class="post__figure">
-            <NuxtLink to="blog/slug">
+            <NuxtLink :to="`blog/${post.slug}`">
               <img :src="post.image" alt="" class="post__img" />
             </NuxtLink>
           </div>
@@ -44,9 +45,11 @@ onUnmounted(() => {
               </time>
               <span class="post__read">5 min read</span>
             </div>
-            <NuxtLink to="blog/slug">
+            <NuxtLink :to="`blog/${post.slug}`">
               <h2 class="post__title">{{ post.title }}</h2>
-              <p class="post__introduction">{{ post.summary }}</p>
+              <p class="post__introduction">
+                {{ post.summary }}
+              </p>
             </NuxtLink>
           </div>
         </article>
@@ -66,6 +69,11 @@ onUnmounted(() => {
       outline: 1px solid $light-gray;
       border-radius: 0.4rem;
       padding: 1rem;
+      @include mq("tablet") {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+      }
 
       .dark & {
         outline: 1px solid $dark-gray;
@@ -73,6 +81,11 @@ onUnmounted(() => {
 
       &__figure {
         margin-bottom: 2rem;
+
+        @include mq("tablet") {
+          flex-basis: 47%;
+          margin-bottom: 0;
+        }
       }
 
       &__img {
@@ -81,10 +94,26 @@ onUnmounted(() => {
       }
 
       &__text {
-        height: 16vh;
+        font-size: $text-xs;
+        line-height: $line-xs;
+        min-height: 16vh;
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
+
+        @include mq("tablet") {
+          flex-basis: 47%;
+          font-size: $text-sm;
+          line-height: $line-sm;
+        }
+      }
+
+      &__info {
+        margin-bottom: 1rem;
+        margin-top: 1rem;
+
+        @include mq("tablet") {
+          margin-bottom: 3rem;
+        }
       }
 
       &__date {
@@ -93,12 +122,29 @@ onUnmounted(() => {
         margin-right: 1rem;
         font-size: 0.8rem;
         line-height: 1.2rem;
-        background-color: #111;
+        background-color: $dark-gray;
         color: #fff;
+
+        .dark & {
+          background-color: #fff;
+          color: $black;
+          font-weight: 600;
+        }
+
+        @include mq("tablet") {
+          font-size: $text-xs;
+          line-height: $line-xs;
+          padding: 0.8rem 1.5rem;
+        }
       }
 
       &__introduction {
+        margin-top: 1rem;
         color: #8b8b8b;
+
+        @include mq("large") {
+          margin-top: 2rem;
+        }
       }
     }
   }
