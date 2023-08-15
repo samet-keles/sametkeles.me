@@ -4,14 +4,14 @@
     <div class="container">
       <section class="content">
         <h1 class="title">
-          <span class="title__text">Merhaba, ben Samet.</span>
+          <span class="title__text">Hello, I’m Samet</span>
         </h1>
         <p class="description">
-          Benim yaratıcılığımın ürünü olan portfolyo siteme hoş geldiniz. Burada
-          kendi blog yazılarım ve projelerimle dolu bir dünya bulacaksınız.
-          Teknoloji ve eğlenceyi bir araya getiriyoruz ve birlikte hayallerimizi
-          gerçekleştirebiliriz. Sizi de burada heyecanla bekliyoruz, haydi
-          birlikte keşfe çıkalım!
+          and this is my portfolio site where I showcase my creative work. Here
+          you will find a world full of my own blog posts and projects. I love
+          combining technology and entertainment to create amazing experiences.
+          I hope you enjoy exploring my portfolio, feel free to contact me if
+          you have any questions or comments.
         </p>
 
         <nuxt-link class="contactLink" to="/contact"
