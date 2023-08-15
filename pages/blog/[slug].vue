@@ -1,26 +1,17 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from "vue";
-import { db } from "@/db";
-import { collection, onSnapshot } from "firebase/firestore";
+import { usePostsData, usePostsArr } from "@/composables/usePosts";
 
 const { slug } = useRoute().params;
 
-const postsArr = ref([]);
 const post = ref([]);
 
-const postsCollection = collection(db, "posts");
-
-function postsData() {
-  return onSnapshot(postsCollection, (snapshot) => {
-    postsArr.value = snapshot.docs.map((post) => post.data());
-    post.value = postsArr.value.find((item) => item.slug == slug);
-  });
-}
+post.value = usePostsArr.value.find((item) => item.slug === slug);
 
 let unsubscribe;
 
 onMounted(() => {
-  unsubscribe = postsData();
+  unsubscribe = usePostsData();
 });
 
 onUnmounted(() => {

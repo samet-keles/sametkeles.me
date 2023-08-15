@@ -1,22 +1,11 @@
 <script setup>
-import { ref, onMounted } from "vue";
-import { db } from "@/db";
-import { collection, onSnapshot } from "firebase/firestore";
-
-const projectsArr = ref([]);
-
-const projectsCollection = collection(db, "projects");
-
-function projectsData() {
-  return onSnapshot(projectsCollection, (snapshot) => {
-    projectsArr.value = snapshot.docs.map((project) => project.data());
-  });
-}
+import { onMounted, onUnmounted } from "vue";
+import { useProjectsArr, useProjectsData } from "@/composables/useProjects";
 
 let unsubscribe;
 
 onMounted(() => {
-  unsubscribe = projectsData();
+  unsubscribe = useProjectsData();
 });
 
 onUnmounted(() => {
@@ -31,7 +20,7 @@ onUnmounted(() => {
     <div class="container">
       <h1 class="page__title">Projects</h1>
       <div class="cards">
-        <div class="card" v-for="project in projectsArr" :key="project.id">
+        <div class="card" v-for="project in useProjectsArr" :key="project.id">
           <a :href="project.link" target="_blank">
             <img :src="project.img" alt="" class="card__img" />
             <div class="card__text">

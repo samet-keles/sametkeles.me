@@ -1,23 +1,11 @@
 <script setup>
-import { ref, onMounted, onUnmounted } from "vue";
-import { db } from "@/db";
-import { collection, onSnapshot } from "firebase/firestore";
-
-const postsArr = ref([]);
-
-const postsCollection = collection(db, "posts");
-
-function postsData() {
-  return onSnapshot(postsCollection, (snapshot) => {
-    postsArr.value = snapshot.docs.map((post) => post.data());
-    console.log(postsArr.value[0].title);
-  });
-}
+import { onMounted, onUnmounted } from "vue";
+import { usePostsArr, usePostsData } from "@/composables/usePosts";
 
 let unsubscribe;
 
 onMounted(() => {
-  unsubscribe = postsData();
+  unsubscribe = usePostsData();
 });
 
 onUnmounted(() => {
@@ -25,6 +13,8 @@ onUnmounted(() => {
     unsubscribe();
   }
 });
+
+console.log(usePostsArr);
 </script>
 
 <template>
@@ -32,7 +22,7 @@ onUnmounted(() => {
     <div class="container">
       <h1 class="page__title">Blog</h1>
       <div class="posts">
-        <article class="post" v-for="post in postsArr" :key="post.id">
+        <article class="post" v-for="post in usePostsArr" :key="post.id">
           <div class="post__figure">
             <NuxtLink :to="`blog/${post.slug}`">
               <img :src="post.image" alt="" class="post__img" />
