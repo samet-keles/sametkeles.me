@@ -13,8 +13,6 @@ onUnmounted(() => {
     unsubscribe();
   }
 });
-
-console.log(usePostsArr);
 </script>
 
 <template>

@@ -1,12 +1,26 @@
 <script setup>
-import { ref, onMounted, onUnmounted } from "vue";
+import { computed, ref, onMounted, onUnmounted } from "vue";
 import { usePostsData, usePostsArr } from "@/composables/usePosts";
+import MarkdownIt from "markdown-it";
 
 const { slug } = useRoute().params;
 
-const post = ref([]);
+const post = computed(() => {
+  return usePostsArr.value.find((item) => item.slug == slug);
+});
 
-post.value = usePostsArr.value.find((item) => item.slug === slug);
+const markdownContent = computed(() => {
+  if (post.value) {
+    return post.value.text;
+  } else {
+    return "";
+  }
+});
+
+const renderedContent = computed(() => {
+  const md = new MarkdownIt();
+  return md.render(markdownContent.value);
+});
 
 let unsubscribe;
 
@@ -24,7 +38,7 @@ onUnmounted(() => {
 <template>
   <section class="post page">
     <div class="container">
-      <article class="post">
+      <article class="post" v-if="post">
         <h2 class="post__title">{{ post.title }}</h2>
         <div class="post__info">
           <time :datetime="post.date" class="post__date">
@@ -35,7 +49,7 @@ onUnmounted(() => {
         <div class="post__figure">
           <img :src="post.image" alt="" class="post__img" />
         </div>
-        <p class="post__content">{{ post.text }}</p>
+        <div v-html="renderedContent" class="post__content" />
       </article>
     </div>
   </section>
@@ -98,8 +112,16 @@ onUnmounted(() => {
     }
 
     &__content {
+      width: 100%;
       font-size: $text-md;
       line-height: $line-md;
+
+      p {
+        img {
+          max-width: 100%; /* Resmin genişliğini yüzdeye göre sınırlar */
+          height: auto; /* Yüksekliği otomatik olarak ayarlar, oranı korur */
+        }
+      }
 
       @include mq("tablet") {
         font-size: $text-lg;
