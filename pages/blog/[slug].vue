@@ -1,5 +1,5 @@
 <script setup>
-import { computed, ref, onMounted, onUnmounted } from "vue";
+import { computed, onMounted, onUnmounted } from "vue";
 import { usePostsData, usePostsArr } from "@/composables/usePosts";
 import MarkdownIt from "markdown-it";
 

@@ -1,11 +1,11 @@
 <template>
   <section class="page-404 page">
     <div class="content">
-      <img src="img/goodies-hey.svg" alt="" class="goodies-hey" />
+      <img src="/img/goodies-hey.svg" alt="" class="goodies-hey" />
       <p class="text">What are you doing here?!</p>
       <div class="img-wrapper">
-        <img src="img/goodies-crying.svg" alt="" class="goodies-crying" />
-        <img src="img/404.svg" alt="" class="img-404" />
+        <img src="/img/goodies-crying.svg" alt="" class="goodies-crying" />
+        <img src="/img/404.svg" alt="" class="img-404" />
       </div>
     </div>
   </section>
