@@ -1,10 +1,9 @@
 <script setup>
 import { computed, onMounted, onUnmounted } from "vue";
 import { usePostsData, usePostsArr } from "@/composables/usePosts";
-import MarkdownIt from "markdown-it";
+import markdownIt from "markdown-it";
 
 const { slug } = useRoute().params;
-
 const post = computed(() => {
   return usePostsArr.value.find((item) => item.slug == slug);
 });
@@ -18,7 +17,10 @@ const markdownContent = computed(() => {
 });
 
 const renderedContent = computed(() => {
-  const md = new MarkdownIt();
+  const md = new markdownIt({
+    html: true,
+    breaks: true,
+  });
   return md.render(markdownContent.value);
 });
 
@@ -49,7 +51,7 @@ onUnmounted(() => {
         <div class="post__figure">
           <img :src="post.image" alt="" class="post__img" />
         </div>
-        <div v-html="renderedContent" class="post__content" />
+        <div class="post__content" v-html="renderedContent"></div>
       </article>
     </div>
   </section>
@@ -108,20 +110,13 @@ onUnmounted(() => {
 
     &__img {
       width: 100%;
-      margin-bottom: 5rem;
+      margin-bottom: 8rem;
+      border-radius: 1.8rem;
     }
 
     &__content {
-      width: 100%;
       font-size: $text-md;
       line-height: $line-md;
-
-      p {
-        img {
-          max-width: 100%; /* Resmin genişliğini yüzdeye göre sınırlar */
-          height: auto; /* Yüksekliği otomatik olarak ayarlar, oranı korur */
-        }
-      }
 
       @include mq("tablet") {
         font-size: $text-lg;
