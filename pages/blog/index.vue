@@ -23,7 +23,7 @@ onUnmounted(() => {
         <article class="post" v-for="post in usePostsArr" :key="post.id">
           <div class="post__figure">
             <NuxtLink :to="`blog/${post.slug}`">
-              <img :src="post.image" alt="" class="post__img" />
+              <img :src="post.img" alt="" class="post__img" />
             </NuxtLink>
           </div>
           <div class="post__text">
@@ -31,12 +31,12 @@ onUnmounted(() => {
               <time :datetime="post.date" class="post__date">
                 {{ post.date }}
               </time>
-              <span class="post__read">5 min read</span>
+              <span class="post__read">{{ post.read }}</span>
             </div>
             <NuxtLink :to="`blog/${post.slug}`">
               <h2 class="post__title">{{ post.title }}</h2>
               <p class="post__introduction">
-                {{ post.summary }}
+                {{ post.introduction }}
               </p>
             </NuxtLink>
           </div>
@@ -78,6 +78,8 @@ onUnmounted(() => {
 
       &__img {
         width: 100%;
+        max-height: 30rem;
+        object-fit: cover;
         border-radius: 0.4rem;
       }
 
