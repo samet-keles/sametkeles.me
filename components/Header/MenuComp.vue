@@ -48,7 +48,7 @@ const activeItem = ref("");
       </div>
     </Transition>
     <div>
-      <button class="btn" @click="show = !show">
+      <button class="btn" @click="show = !show" aria-label="Menu">
         <MenuIcon></MenuIcon>
       </button>
     </div>

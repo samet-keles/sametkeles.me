@@ -1,3 +1,9 @@
+<script setup>
+useHead({
+  title: "About me | Samet Keles",
+});
+</script>
+
 <template>
   <section class="about page">
     <div class="container">

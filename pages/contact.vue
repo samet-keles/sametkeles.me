@@ -2,7 +2,10 @@
 import axios from "axios";
 import { reactive } from "vue";
 
-// reactive state
+useHead({
+  title: "Contact me | Samet Keles",
+});
+
 const form = reactive({
   name: "",
   email: "",

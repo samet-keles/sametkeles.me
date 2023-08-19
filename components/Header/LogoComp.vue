@@ -6,7 +6,7 @@ const isDark = useDark();
 
 <template>
   <div class="logo">
-    <a class="logo__link" href="">
+    <a class="logo__link" href="/">
       <img
         v-if="!isDark"
         class="logo__img"

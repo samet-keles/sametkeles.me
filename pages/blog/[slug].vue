@@ -4,13 +4,18 @@ import { usePostsData, usePostsArr } from "@/composables/usePosts";
 import markdownIt from "markdown-it";
 
 const { slug } = useRoute().params;
+
 const post = computed(() => {
   return usePostsArr.value.find((item) => item.slug == slug);
 });
 
+useHead({
+  title: `${post.value.title} | Samet Keles`,
+});
+
 const markdownContent = computed(() => {
   if (post.value) {
-    return post.value.text;
+    return post.value.content;
   } else {
     return "";
   }
@@ -41,15 +46,20 @@ onUnmounted(() => {
   <section class="post page">
     <div class="container">
       <article class="post" v-if="post">
-        <h2 class="post__title">{{ post.title }}</h2>
+        <h1 class="post__title">{{ post.title }}</h1>
         <div class="post__info">
           <time :datetime="post.date" class="post__date">
             {{ post.date }}
           </time>
-          <span class="post__read">5 min read</span>
+          <span class="post__read">{{ post.read }}</span>
         </div>
         <div class="post__figure">
-          <img :src="post.image" alt="" class="post__img" />
+          <nuxt-img
+            :src="post.img"
+            :alt="post.alt"
+            class="post__img"
+            loading="lazy"
+          />
         </div>
         <div class="post__content" v-html="renderedContent"></div>
       </article>
@@ -82,7 +92,7 @@ onUnmounted(() => {
     &__title {
       font-size: $text-xxl;
       line-height: $line-xxl;
-      margin-bottom: 1rem;
+      margin-bottom: 5rem;
       color: $black;
 
       .dark & {
