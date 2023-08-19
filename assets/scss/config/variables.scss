@@ -1,0 +1,49 @@
+// font-size
+$text-xxl: 3.2rem;
+$text-xl: 2rem;
+$text-lg: 1.8rem;
+$text-md: 1.6rem;
+$text-sm: 1.4rem;
+$text-xs: 1rem;
+
+// line-height
+$line-xxl: 5.4rem;
+$line-xl: 3rem;
+$line-lg: 2.6rem;
+$line-md: 2.4rem;
+$line-sm: 2rem;
+$line-xs: 1.6rem;
+
+// colors
+$white: #f3f3f2;
+$black: #0c0c0d;
+$blue: #0b66c3;
+$gray: #28282b;
+$dark-gray: #18181b;
+$light-gray: #d6d6d6;
+$gray-2: #7997af;
+$orange: #fe840a;
+$purple: #be23fe;
+$purple-to-orange: linear-gradient(
+  to right,
+  #be23fe,
+  #e200db,
+  #f600b9,
+  #fe009c,
+  #ff2d83,
+  #ff3f73,
+  #ff5165,
+  #ff6259,
+  #ff6e4c,
+  #ff7b3f,
+  #ff8930,
+  #ff981f
+);
+$purple-to-pink: linear-gradient(
+  to right,
+  #be23fe,
+  #e200db,
+  #f600b9,
+  #fe009c,
+  #ff2d83
+);
