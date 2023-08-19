@@ -29,16 +29,16 @@ const goToContact = () => {
       </section>
       <article class="animation">
         <video
+          title="Home Animation"
+          aria-label="Developer writing code"
           class="animation__gif"
           autoplay
           loop
           muted
           playsinline
-          title="Home Animation"
-          aria-label="Developer writing code"
         >
-          <source src="img/home-animation.webm" type="video/webm" />
-          <source src="img/home-animation.mp4" type="video/mp4" />
+          <source src="/home-animation.webm" type="video/webm" />
+          <source src="/home-animation.mp4" type="video/mp4" />
         </video>
       </article>
     </div>
