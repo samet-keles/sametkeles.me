@@ -1,3 +1,10 @@
+<script setup>
+const router = useRouter();
+const goToContact = () => {
+  router.push("/contact");
+};
+</script>
+
 <template>
   <div class="light-effect"></div>
   <main class="main">
@@ -14,18 +21,26 @@
           you have any questions or comments.
         </p>
 
-        <nuxt-link class="contactLink" to="/contact"
-          ><ButtonComp class="btn" name="Contact Me"></ButtonComp
-        ></nuxt-link>
+        <ButtonComp
+          class="btn contact-btn"
+          @click="goToContact"
+          name="Contact Me"
+        ></ButtonComp>
       </section>
-      <section class="animation">
-        <nuxt-img
+      <article class="animation">
+        <video
           class="animation__gif"
-          src="/img/home-animation.gif"
-          alt="Developer writing code"
-          loading="lazy"
-        />
-      </section>
+          autoplay
+          loop
+          muted
+          playsinline
+          title="Home Animation"
+          aria-label="Developer writing code"
+        >
+          <source src="img/home-animation.webm" type="video/webm" />
+          <source src="img/home-animation.mp4" type="video/mp4" />
+        </video>
+      </article>
     </div>
   </main>
 </template>
@@ -75,7 +90,7 @@
         text-align: center;
       }
 
-      .contactLink {
+      .contact-btn {
         display: inline-block;
         position: relative;
         left: 50%;

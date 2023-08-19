@@ -2,6 +2,8 @@
 export default defineNuxtConfig({
   app: {
     head: {
+      charset: "utf-8",
+      viewport: "width=device-width, initial-scale=1",
       htmlAttrs: {
         lang: "en",
       },
@@ -23,6 +25,10 @@ export default defineNuxtConfig({
           rel: "shortcut icon",
           href: "/img/favicon.ico",
           type: "image/x-icon",
+        },
+        {
+          rel: "preload",
+          as: "font",
         },
       ],
     },
