@@ -10,6 +10,7 @@
     fill="none"
     stroke-linecap="round"
     stroke-linejoin="round"
+    aria-label="my github profile"
   >
     <path stroke="none" d="M0 0h24v24H0z" fill="none" />
     <path

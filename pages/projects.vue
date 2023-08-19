@@ -2,6 +2,10 @@
 import { onMounted, onUnmounted } from "vue";
 import { useProjectsArr, useProjectsData } from "@/composables/useProjects";
 
+useHead({
+  title: "Projects | Samet Keles",
+});
+
 let unsubscribe;
 
 onMounted(() => {
@@ -22,7 +26,12 @@ onUnmounted(() => {
       <div class="cards">
         <div class="card" v-for="project in useProjectsArr" :key="project.id">
           <a :href="project.link" target="_blank">
-            <img :src="project.img" alt="" class="card__img" />
+            <nuxt-img
+              :src="project.img"
+              :alt="project.alt"
+              class="card__img"
+              loading="lazy"
+            />
             <div class="card__text">
               <h3 class="card__title">{{ project.title }}</h3>
               <p class="card__description">{{ project.description }}</p>

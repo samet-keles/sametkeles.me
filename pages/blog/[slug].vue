@@ -4,8 +4,13 @@ import { usePostsData, usePostsArr } from "@/composables/usePosts";
 import markdownIt from "markdown-it";
 
 const { slug } = useRoute().params;
+
 const post = computed(() => {
   return usePostsArr.value.find((item) => item.slug == slug);
+});
+
+useHead({
+  title: `${post.value.title} | Samet Keles`,
 });
 
 const markdownContent = computed(() => {
@@ -49,7 +54,12 @@ onUnmounted(() => {
           <span class="post__read">{{ post.read }}</span>
         </div>
         <div class="post__figure">
-          <img :src="post.img" alt="" class="post__img" />
+          <nuxt-img
+            :src="post.img"
+            :alt="post.alt"
+            class="post__img"
+            loading="lazy"
+          />
         </div>
         <div class="post__content" v-html="renderedContent"></div>
       </article>

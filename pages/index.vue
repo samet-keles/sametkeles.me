@@ -19,7 +19,12 @@
         ></nuxt-link>
       </section>
       <section class="animation">
-        <img class="animation__gif" src="/img/home-animation.gif" />
+        <nuxt-img
+          class="animation__gif"
+          src="/img/home-animation.gif"
+          alt="Developer writing code"
+          loading="lazy"
+        />
       </section>
     </div>
   </main>

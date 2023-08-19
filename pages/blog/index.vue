@@ -2,6 +2,10 @@
 import { onMounted, onUnmounted } from "vue";
 import { usePostsArr, usePostsData } from "@/composables/usePosts";
 
+useHead({
+  title: "Blog | Samet Keles",
+});
+
 let unsubscribe;
 
 onMounted(() => {
@@ -23,7 +27,12 @@ onUnmounted(() => {
         <article class="post" v-for="post in usePostsArr" :key="post.id">
           <div class="post__figure">
             <NuxtLink :to="`blog/${post.slug}`">
-              <img :src="post.img" alt="" class="post__img" />
+              <nuxt-img
+                :src="post.img"
+                :alt="post.alt"
+                class="post__img"
+                loading="lazy"
+              />
             </NuxtLink>
           </div>
           <div class="post__text">
