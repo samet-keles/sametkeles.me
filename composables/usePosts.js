@@ -9,5 +9,6 @@ const postsCollection = collection(db, "posts");
 export function usePostsData() {
   return onSnapshot(postsCollection, (snapshot) => {
     usePostsArr.value = snapshot.docs.map((post) => post.data());
+    usePostsArr.value.reverse();
   });
 }
