@@ -9,8 +9,12 @@ const post = computed(() => {
   return usePostsArr.value.find((item) => item.slug == slug);
 });
 
+const title = computed(() => {
+  return post.value ? post.value.title : "";
+});
+
 useHead({
-  title: `${post.value.title} | Samet Keles`,
+  title,
 });
 
 const markdownContent = computed(() => {
